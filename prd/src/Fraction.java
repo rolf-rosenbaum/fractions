@@ -2,21 +2,17 @@ import java.util.Objects;
 
 public class Fraction {
 
-    private final int integerNumber;
-
     private final int numerator;
 
     private final int denominator;
 
     public Fraction(int integerNumber) {
-        this.integerNumber = integerNumber;
         denominator = 1;
-        numerator = 0;
+        numerator = integerNumber;
 
     }
 
     public Fraction(int numerator, int denominator) {
-        integerNumber = 0;
         this.numerator = numerator;
         this.denominator = denominator;
     }
@@ -56,21 +52,19 @@ public class Fraction {
             return false;
         }
         Fraction fraction = (Fraction) o;
-        return integerNumber == fraction.integerNumber &&
-                numerator == fraction.numerator &&
+        return numerator == fraction.numerator &&
                 denominator == fraction.denominator;
     }
 
     @Override
     public int hashCode() {
 
-        return Objects.hash(integerNumber, numerator, denominator);
+        return Objects.hash(numerator, denominator);
     }
 
     @Override
     public String toString() {
         return "Fraction{" +
-                integerNumber +
                 " " + numerator +
                 "/" + denominator +
                 '}';

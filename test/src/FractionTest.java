@@ -30,4 +30,14 @@ public class FractionTest {
         assertThat(new Fraction(1, 3).add(new Fraction(2, 3)), is(new Fraction(1, 1)));
     }
 
+    @Test
+    public void someExamples() {
+        assertThat(new Fraction(7, 3).add(new Fraction(4, 5)), is(new Fraction(47, 15)));
+    }
+
+    @Test
+    public void addFractionToInteger() {
+        assertThat(new Fraction(1).add(new Fraction(1, 2)), is(new Fraction(3, 2)));
+    }
+
 }
