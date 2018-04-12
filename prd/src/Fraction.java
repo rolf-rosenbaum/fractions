@@ -22,14 +22,10 @@ public class Fraction {
     }
 
     public Fraction add(Fraction other) {
-        if (other.denominator == this.denominator) {
-            return new Fraction(this.numerator + other.numerator, denominator);
-        } else {
-            int lcm = commonMultiple(other.denominator, denominator);
-            int num1 = this.numerator * lcm / this.denominator;
-            int num2 = other.numerator * lcm / other.denominator;
-            return new Fraction(num1 + num2, lcm).reduce();
-        }
+        int lcm = commonMultiple(other.denominator, denominator);
+        int num1 = this.numerator * lcm / this.denominator;
+        int num2 = other.numerator * lcm / other.denominator;
+        return new Fraction(num1 + num2, lcm).reduce();
     }
 
     private int commonMultiple(int a, int b) {
@@ -43,7 +39,7 @@ public class Fraction {
 
     private int greatestCommonDivider(int numerator, int denominator) {
         int result = 1;
-        for (int i = 2; i < Math.max(numerator, denominator); i++) {
+        for (int i = 2; i <= Math.max(numerator, denominator); i++) {
             if (numerator % i == 0 && denominator % i == 0) {
                 result = i;
             }

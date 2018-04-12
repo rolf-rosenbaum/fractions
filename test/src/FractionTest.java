@@ -25,4 +25,9 @@ public class FractionTest {
         assertThat(new Fraction(1, 2).add(new Fraction(1, 4)), is(new Fraction(3, 4)));
     }
 
+    @Test
+    public void reduceToOne() {
+        assertThat(new Fraction(1, 3).add(new Fraction(2, 3)), is(new Fraction(1, 1)));
+    }
+
 }
