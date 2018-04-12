@@ -25,17 +25,30 @@ public class Fraction {
         if (other.denominator == this.denominator) {
             return new Fraction(this.numerator + other.numerator, denominator);
         } else {
-            // find lowest common multiple
-            int lcm = lowestCommonMultiple(other.denominator, denominator);
+            int lcm = commonMultiple(other.denominator, denominator);
             int num1 = this.numerator * lcm / this.denominator;
             int num2 = other.numerator * lcm / other.denominator;
-            return new Fraction(num1 + num2, lcm);
-
+            return new Fraction(num1 + num2, lcm).reduce();
         }
     }
 
-    private int lowestCommonMultiple(int a, int b) {
+    private int commonMultiple(int a, int b) {
         return a * b;
+    }
+
+    private Fraction reduce() {
+        int gcd = greatestCommonDivider(numerator, denominator);
+        return new Fraction((numerator / gcd), denominator / gcd);
+    }
+
+    private int greatestCommonDivider(int numerator, int denominator) {
+        int result = 1;
+        for (int i = 2; i < Math.max(numerator, denominator); i++) {
+            if (numerator % i == 0 && denominator % i == 0) {
+                result = i;
+            }
+        }
+        return result;
     }
 
     @Override
@@ -56,5 +69,14 @@ public class Fraction {
     public int hashCode() {
 
         return Objects.hash(integerNumber, numerator, denominator);
+    }
+
+    @Override
+    public String toString() {
+        return "Fraction{" +
+                integerNumber +
+                " " + numerator +
+                "/" + denominator +
+                '}';
     }
 }

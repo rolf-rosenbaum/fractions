@@ -18,7 +18,11 @@ public class FractionTest {
     @Test
     public void addFractionsWithDifferentDenominators() {
         assertThat(new Fraction(1, 3).add(new Fraction(1, 2)), is(new Fraction(5, 6)));
+    }
 
+    @Test
+    public void reduceAFraction() {
+        assertThat(new Fraction(1, 2).add(new Fraction(1, 4)), is(new Fraction(3, 4)));
     }
 
 }
