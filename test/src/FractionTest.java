@@ -15,4 +15,10 @@ public class FractionTest {
         assertThat(new Fraction(1, 3).add(new Fraction(1, 3)), is(new Fraction(2, 3)));
     }
 
+    @Test
+    public void addFractionsWithDifferentDenominators() {
+        assertThat(new Fraction(1, 3).add(new Fraction(1, 2)), is(new Fraction(5, 6)));
+
+    }
+
 }

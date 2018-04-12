@@ -21,11 +21,21 @@ public class Fraction {
         this.denominator = denominator;
     }
 
-    public Fraction add(Fraction fraction) {
-        if (fraction.denominator == this.denominator) {
-            return new Fraction(this.numerator + fraction.numerator, denominator);
+    public Fraction add(Fraction other) {
+        if (other.denominator == this.denominator) {
+            return new Fraction(this.numerator + other.numerator, denominator);
+        } else {
+            // find lowest common multiple
+            int lcm = lowestCommonMultiple(other.denominator, denominator);
+            int num1 = this.numerator * lcm / this.denominator;
+            int num2 = other.numerator * lcm / other.denominator;
+            return new Fraction(num1 + num2, lcm);
+
         }
-        return null;
+    }
+
+    private int lowestCommonMultiple(int a, int b) {
+        return a * b;
     }
 
     @Override
