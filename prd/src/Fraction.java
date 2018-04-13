@@ -17,12 +17,17 @@ public class Fraction {
         this.denominator = denominator;
     }
 
-    public Fraction add(Fraction other) {
+    public Fraction plus(Fraction other) {
         int lcm = commonMultiple(other.denominator, denominator);
         int num1 = this.numerator * lcm / this.denominator;
         int num2 = other.numerator * lcm / other.denominator;
         return new Fraction(num1 + num2, lcm).reduce();
     }
+
+    public Fraction minus(Fraction other) {
+        return this.plus(new Fraction((-1) * other.numerator, other.denominator));
+    }
+
 
     private int commonMultiple(int a, int b) {
         return a * b;
