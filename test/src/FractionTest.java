@@ -55,4 +55,15 @@ public class FractionTest {
     public void multiplyTwoFractionAndReduce() {
         assertThat(new Fraction(2, 3).multiplyBy(new Fraction(3, 4)), is(new Fraction(1, 2)));
     }
+
+    @Test
+    public void divideTwoFractions() {
+        assertThat(new Fraction(2, 5).divideBy(new Fraction(3, 4)), is(new Fraction(8, 15)));
+        assertThat(new Fraction(3, 7).divideBy(new Fraction(5, 6)), is(new Fraction(18, 35)));
+    }
+
+    @Test
+    public void divideTwoFractionsWithReduce() {
+        assertThat(new Fraction(3, 4).divideBy(new Fraction(3, 8)), is(new Fraction(2)));
+    }
 }

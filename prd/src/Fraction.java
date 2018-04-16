@@ -77,4 +77,9 @@ public class Fraction {
                 "/" + denominator +
                 '}';
     }
+
+    public Fraction divideBy(Fraction other) {
+        return new Fraction(this.numerator * other.denominator, this.denominator * other.numerator).reduce();
+    }
+
 }
