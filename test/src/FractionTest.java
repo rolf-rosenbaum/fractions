@@ -6,16 +6,6 @@ import static org.hamcrest.MatcherAssert.assertThat;
 public class FractionTest {
 
     @Test
-    public void zeroPlusZero() {
-        assertThat(new Fraction(0).plus(new Fraction(0)), is(new Fraction(0)));
-    }
-
-    @Test
-    public void zeroMinusZero() {
-        assertThat(new Fraction(0).minus(new Fraction(0)), is(new Fraction((0))));
-    }
-
-    @Test
     public void addFractionsWithSameDenominator() {
         assertThat(new Fraction(1, 3).plus(new Fraction(1, 3)), is(new Fraction(2, 3)));
     }
@@ -55,4 +45,14 @@ public class FractionTest {
         assertThat(new Fraction(1, 2).minus(new Fraction(1, 2)), is(new Fraction(0)));
     }
 
+    @Test
+    public void multiplyTwoFractions() {
+        assertThat(new Fraction(1, 2).multiplyBy(new Fraction(1, 2)), is(new Fraction(1, 4)));
+        assertThat(new Fraction(2, 5).multiplyBy(new Fraction(3, 7)), is(new Fraction(6, 35)));
+    }
+
+    @Test
+    public void multiplyTwoFractionAndReduce() {
+        assertThat(new Fraction(2, 3).multiplyBy(new Fraction(3, 4)), is(new Fraction(1, 2)));
+    }
 }

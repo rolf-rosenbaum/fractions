@@ -28,6 +28,9 @@ public class Fraction {
         return this.plus(new Fraction((-1) * other.numerator, other.denominator));
     }
 
+    public Fraction multiplyBy(Fraction other) {
+        return new Fraction(this.numerator * other.numerator, this.denominator * other.denominator).reduce();
+    }
 
     private int commonMultiple(int a, int b) {
         return a * b;
